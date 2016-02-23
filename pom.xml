@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.broadinstitute.gpinformatics.automation</groupId>
+    <artifactId>CrspJanusApplication</artifactId>
+    <version>1.0.7</version>
+    <name>CrspJanusApplication</name>
+    <packaging>pom</packaging>
+
+    <distributionManagement>
+        <repository>
+            <id>internal</id>
+            <name>Broad's Maven2 Custom Repository</name>
+            <url>file:///seq/prodinfo/m2-repository</url>
+        </repository>
+    </distributionManagement>
+
+    <modules>
+        <module>lims-service-mercury</module>
+        <module>janus-app</module>
+        <module>janus-app-war</module>
+  </modules>
+    <properties>
+        <slf4j.version>1.6.0</slf4j.version>
+    </properties>
+    <dependencies>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>${slf4j.version}</version>
+        </dependency>
+    </dependencies>
+    <profiles>
+        <profile>
+            <id>prod</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <env>prod</env>
+                <build.version>${project.version}</build.version>
+            </properties>
+        </profile>
+        <profile>
+            <id>dev</id>
+            <properties>
+                <env>dev</env>
+                <build.version>1.0-SNAPSHOT</build.version>
+            </properties>
+        </profile>
+    </profiles>
+</project>

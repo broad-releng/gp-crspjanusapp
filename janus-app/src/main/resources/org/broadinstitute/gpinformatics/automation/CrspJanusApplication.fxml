@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane id="BorderPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml"
+            fx:controller="org.broadinstitute.gpinformatics.automation.controllers.JanusApplicationController">
+    <top>
+        <ToolBar id="mainToolBar" maxHeight="40.0" minHeight="40.0" prefHeight="40.0">
+            <items>
+                <Button fx:id="closeButton" id="closeButton" onAction="#closeApplication" text="Close" />
+                <Label text="CRSP Janus Application" styleClass="embeddedText"/>
+                <Region HBox.Hgrow="ALWAYS" />
+                <Label fx:id="loggedInUserLabel" styleClass="embeddedText"/>
+                <Button fx:id="logoutButton" id="logoutButton" onAction="#logout" text="Log Out" />
+            </items>
+        </ToolBar>
+    </top>
+    <center>
+        <StackPane fx:id="stackPane">
+            <fx:include fx:id="loginPane" source="Login.fxml"/>
+            <fx:include fx:id="janusProtocolsPane" source="JanusProtocols.fxml"/>
+        </StackPane>
+    </center>
+    <bottom>
+        <ToolBar id="mainToolBar" maxHeight="40.0" minHeight="40.0" prefHeight="40.0">
+            <items>
+                <Label text="App Version: " styleClass="embeddedText"/>
+                <Label text="" fx:id="appVersionLabel" styleClass="embeddedText"/>
+                <Region HBox.Hgrow="ALWAYS" />
+                <Label text="Machine Name: " styleClass="embeddedText"/>
+                <Label fx:id="machineNameLabel" styleClass="embeddedText"/>
+            </items>
+        </ToolBar>
+    </bottom>
+</BorderPane>

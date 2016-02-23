@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:element name="solexaRunBean">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="flowcellBarcode" type="xsd:string"/>
+                <xsd:element name="runBarcode" type="xsd:string"/>
+                <xsd:element name="machineName" type="xsd:string"/>
+                <xsd:element name="runDirectory" type="xsd:string"/>
+                <xsd:element name="reagentBlockBarcode" type="xsd:string"/>
+                <xsd:element name="runDate" type="xsd:date"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+</xsd:schema>

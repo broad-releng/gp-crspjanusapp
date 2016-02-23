@@ -1,0 +1,111 @@
+
+.root {
+    -fx-font-size: 13px;
+    -fx-background-color: #EEEEEE;
+}
+
+.text-field {
+    -fx-font-size: 15px;
+}
+
+.negativeNumberStyle {
+    -fx-font-size: 12px;
+    -fx-base: rgb(0,0,0);
+    -fx-background-color: rgb(255,228,225);
+    -fx-border-color: gray;
+    -fx-border-width: 1 1 0 0;
+}
+
+.overMaxNumberStyle {
+    -fx-font-size: 12px;
+    -fx-base: rgb(0,0,0);
+    -fx-background-color: rgb(170, 221, 238);
+    -fx-border-color: gray;
+    -fx-border-width: 1 1 0 0;
+}
+
+#welcome-text {
+    -fx-font-size: 23px;
+    -fx-fill: steelblue;
+    -fx-font-weight: bold;
+    /*-fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );*/
+}
+
+#subheader-text {
+    -fx-font-size: 12px;
+    -fx-fill: gray;
+}
+
+#rightView {
+    -fx-background-color: #EEEEEE;
+}
+
+#rackPaneText {
+    -fx-font-size: 15px;
+}
+
+.protocolView {
+    -fx-font-size: 13px;
+    -fx-background-color: #ceebb4;
+    -fx-border-color: rgb(117, 135, 135);
+    -fx-border-radius: 5;
+}
+
+/*Mac OS x style buttons*/
+.lion-default {
+    -fx-background-color:
+        rgba(0,0,0,0.08),
+        linear-gradient(#5a61af, #51536d),
+        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);
+    -fx-background-insets: 0 0 -1 0,0,1;
+    -fx-background-radius: 5,5,4;
+    -fx-padding: 15 20 15 20;
+    -fx-text-fill: black;
+    -fx-font-size: 16px;
+}
+
+
+.lion-default:hover  {
+    -fx-font-size: 17px;
+}
+
+.lion-default:pressed  {
+    -fx-background-color:
+        rgba(0,0,0,0.25),
+        linear-gradient(#5a61af, #51536d),
+        linear-gradient(#e4fbff 0%,#cee6fb 10%, #a5d3fb 50%, #88c6fb 51%, #d5faff 100%);
+    -fx-background-insets: 0,1,2;
+    -fx-background-radius: 5,5,4;
+    -fx-padding: 15 20 15 20;
+    -fx-text-fill: #242d35;
+    -fx-font-size: 17px;
+}
+
+.largeFont {
+    -fx-text-fill: #242d35;
+    -fx-font-weight: bold;
+    -fx-font-size: 24;
+}
+
+.errorText {
+    -fx-text-fill: #7b0c09;
+    -fx-font-weight: bold;
+    -fx-font-size: 12;
+}
+
+.login {
+    -fx-background-color: white;
+    -fx-border-color: rgb(117, 135, 135);
+    -fx-border-radius: 5;
+}
+
+.loginWelcomeLabel {
+    -fx-font-weight: 200;
+    -fx-font-size: 14;
+    -fx-text-fill: slategray;
+    -fx-font-family: "Helvetica";
+}
+
+.embeddedText {
+    -fx-effect: dropshadow( gaussian , rgba(192,192,192,0.5) , 0,0,0,1 );
+}

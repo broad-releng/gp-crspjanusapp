@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.broadinstitute.gpinformatics.automation.protocols.ProtocolTypes?>
+<?import java.net.URL?>
+<?import javafx.geometry.Insets?>
+<GridPane xmlns:fx="http://javafx.com/fxml"
+          fx:controller="org.broadinstitute.gpinformatics.automation.controllers.ProtocolsController">
+    <SplitPane fx:id="splitPane" dividerPositions="0.15" focusTraversable="true"
+            GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS"
+            GridPane.columnIndex="0" GridPane.rowIndex="0">
+        <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="-1.0" prefWidth="-1.0">
+                <children>
+                    <TreeView id="treeView" fx:id="treeView" prefHeight="528.0" prefWidth="175.0"
+                              AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="-1.0"
+                              AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <root>
+                            <TreeItem value="Protocols" expanded="true">
+                                <children>
+                                    <TreeItem >
+                                        <value>
+                                            <ProtocolTypes fx:value="FingerprintNormalization"/>
+                                        </value>
+                                    </TreeItem>
+                                    <TreeItem>
+                                        <value>
+                                            <ProtocolTypes fx:value="ShearingNormalization"/>
+                                        </value>
+                                    </TreeItem>
+                                    <TreeItem>
+                                        <value>
+                                            <ProtocolTypes fx:value="Normalization"/>
+                                        </value>
+                                    </TreeItem>
+                                    <TreeItem>
+                                        <value>
+                                            <ProtocolTypes fx:value="RaiseVolume"/>
+                                        </value>
+                                    </TreeItem>
+                                    <TreeItem>
+                                        <value>
+                                            <ProtocolTypes fx:value="TruSeqAliquot"/>
+                                        </value>
+                                    </TreeItem>
+                                    <TreeItem>
+                                        <value>
+                                            <ProtocolTypes fx:value="TruSeqSpike"/>
+                                        </value>
+                                    </TreeItem>
+                                    <TreeItem>
+                                        <value>
+                                            <ProtocolTypes fx:value="RNACaliperQC"/>
+                                        </value>
+                                    </TreeItem>
+                                    <TreeItem>
+                                        <value>
+                                            <ProtocolTypes fx:value="VolumeTransfer"/>
+                                        </value>
+                                    </TreeItem>
+                                </children>
+                            </TreeItem>
+                        </root>
+                    </TreeView>
+                </children>
+            </AnchorPane>
+            <GridPane alignment="TOP_CENTER" SplitPane.resizableWithParent="true" id="rightView">
+                <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+                <StackPane fx:id="stackPane" alignment="TOP_CENTER" GridPane.halignment="CENTER"
+                           GridPane.rowIndex="0" GridPane.columnIndex="0">
+                    <fx:include fx:id="fingerprintNormalizationPane" source="FingerprintNormalization.fxml" />
+                    <fx:include fx:id="shearingNormalizationPane" source="ShearingNormalization.fxml" />
+                    <fx:include fx:id="normalizationPane" source="Normalization.fxml" />
+                    <fx:include fx:id="raiseVolumePane" source="RaiseVolume.fxml" />
+                    <fx:include fx:id="truSeqAliquotPane" source="TruSeqAliquot.fxml" />
+                    <fx:include fx:id="truSeqSpikePane" source="TruSeqSpike.fxml" />
+                    <fx:include fx:id="rnaCaliperQCPane" source="RNACaliperQC.fxml" />
+                    <fx:include fx:id="volumeTransferPane" source="VolumeTransfer.fxml" />
+                </StackPane>
+            </GridPane>
+        </items>
+    </SplitPane>
+    <stylesheets>
+        <URL value="@style.css"/>
+    </stylesheets>
+</GridPane>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+
+<GridPane fx:controller="org.broadinstitute.gpinformatics.automation.controllers.LoginController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
+          maxHeight="350"
+          maxWidth="800"
+          styleClass="login">
+    <rowConstraints>
+        <RowConstraints maxHeight="50"/>
+        <RowConstraints vgrow="ALWAYS" />
+        <RowConstraints maxHeight="0" vgrow="NEVER" />
+    </rowConstraints>
+
+    <Label styleClass="errorText"
+           fx:id="errorMessage"
+           GridPane.columnSpan="2"
+           GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+
+    <Button text="Fire Badge Scanner"
+            fx:id="badgeScanButton"
+            onAction="#fireBadgeScanner"
+            styleClass="lion-default"
+            GridPane.valignment="CENTER"
+            GridPane.columnSpan="2"
+            GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+    <ProgressIndicator fx:id="scanningBadgeIndicator" visible="false"
+            maxHeight="50"/>
+
+    <Text styleClass="loginWelcomeLabel" text="Or please login with your mercury username"
+          GridPane.columnIndex="0" GridPane.rowIndex="2"
+          GridPane.columnSpan="2"/>
+
+    <Label text="User Name:"
+           styleClass="largeFont"
+           GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+
+    <TextField fx:id="username"
+               minHeight="50"
+               minWidth="200"
+               GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+    <HBox spacing="10" alignment="bottom_right"
+          GridPane.columnIndex="1" GridPane.rowIndex="4">
+        <Button text="Sign In"
+                styleClass="lion-default"
+                id="loginButton"
+                fx:id="signInButton"
+                onAction="#handleSubmitButtonAction"/>
+    </HBox>
+</GridPane>

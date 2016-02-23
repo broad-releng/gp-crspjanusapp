@@ -1,0 +1,81 @@
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import org.broadinstitute.gpinformatics.automation.protocols.ProtocolTypes?>
+<?import org.broadinstitute.gpinformatics.automation.control.WellTransferTableView?>
+<?import org.broadinstitute.gpinformatics.automation.control.ReagentForm?>
+<?import org.broadinstitute.gpinformatics.automation.layout.RackPane?>
+<?import org.broadinstitute.gpinformatics.automation.layout.PlatePane?>
+<GridPane fx:controller="org.broadinstitute.gpinformatics.automation.controllers.RNACaliperQCController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
+          styleClass="protocolView">
+    <fx:define>
+        <ProtocolTypes fx:id="protocolType" fx:value="RNACaliperQC"/>
+    </fx:define>
+    <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+
+    <Text id="welcome-text" text="RNA Caliper QC"
+          GridPane.columnIndex="1" GridPane.rowIndex="0"
+          GridPane.columnSpan="1" GridPane.halignment="CENTER"/>
+
+    <RackPane rows="8" columns="12" fx:id="sourceRackPane"
+              GridPane.columnIndex="0" GridPane.rowIndex="1"
+              GridPane.halignment="CENTER"
+              id="sourceRackPane"
+              source="true"
+              rackName="Source Rack"/>
+
+    <GridPane GridPane.columnIndex="1" GridPane.rowIndex="1"
+              alignment="CENTER"
+              hgap="10" vgap="5"
+              GridPane.halignment="CENTER"
+              GridPane.valignment="CENTER">
+
+        <ReagentForm fx:id="reagentForm"
+                     GridPane.columnSpan="2"
+                     GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+
+        <Label text="Target conc?"
+               GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="targetConcentrationTextField"
+                   id="targetConcentration"
+                   GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Button onAction="#build" text="Transfer"
+                fx:id="transferButton"
+                GridPane.columnIndex="0" GridPane.rowIndex="2"
+                GridPane.columnSpan="2"
+                GridPane.halignment="CENTER"/>
+    </GridPane>
+
+    <PlatePane rows="16" columns="24" fx:id="destinationPlatePane"
+              GridPane.columnIndex="2" GridPane.rowIndex="1"
+              GridPane.halignment="CENTER"
+              id="destinationPlatePane"
+              source="false"
+              plateName="QC Plate"/>
+
+    <WellTransferTableView fx:id="tableView"
+                       GridPane.columnIndex="0" GridPane.rowIndex="2"
+                       editable="true"
+                       GridPane.columnSpan="3" GridPane.halignment="CENTER"
+                       GridPane.hgrow="NEVER"
+                       maxWidth="848"
+                       prefHeight="225" prefWidth="400">
+    </WellTransferTableView>
+
+    <Button onAction="#doSaveWorklist" text="Save Worklist"
+            fx:id="saveWorklistButton" disable="true"
+            GridPane.columnIndex="1" GridPane.rowIndex="3"
+            GridPane.halignment="CENTER"
+            />
+
+
+    <Button onAction="#doSendMessage" text="Send Message"
+            fx:id="sendMessageButton" disable="true"
+            GridPane.columnIndex="1" GridPane.rowIndex="5"
+            GridPane.halignment="CENTER"/>
+
+</GridPane>

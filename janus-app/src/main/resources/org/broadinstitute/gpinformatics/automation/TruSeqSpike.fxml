@@ -1,0 +1,103 @@
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import org.broadinstitute.gpinformatics.automation.layout.RackPane?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import org.broadinstitute.gpinformatics.automation.protocols.ProtocolTypes?>
+<?import org.broadinstitute.gpinformatics.automation.control.NormSpikeTableView?>
+<?import org.broadinstitute.gpinformatics.automation.control.ReagentForm?>
+<GridPane fx:controller="org.broadinstitute.gpinformatics.automation.controllers.TruSeqSpikeController"
+          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
+          styleClass="protocolView">
+    <fx:define>
+        <ProtocolTypes fx:id="protocolType" fx:value="TruSeqSpike"/>
+    </fx:define>
+    <padding><Insets top="25" right="25" bottom="25" left="25"/></padding>
+
+    <Text id="welcome-text" text="TruSeq Norms And Spikes"
+          GridPane.columnIndex="1" GridPane.rowIndex="0"
+          GridPane.columnSpan="1" GridPane.halignment="CENTER"/>
+    <Text id="subheader-text" text="If you are running norms then you only need to scan the aliquot rack."
+          GridPane.columnIndex="1" GridPane.rowIndex="1"
+          GridPane.columnSpan="1" GridPane.halignment="CENTER"/>
+
+    <RackPane rows="8" columns="12" fx:id="sourceRackPane"
+              GridPane.columnIndex="0" GridPane.rowIndex="2"
+              GridPane.halignment="CENTER"
+              id="sourceRackPane"
+              source="true"
+              rackName="Parent Rack"/>
+
+    <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2"
+              alignment="CENTER"
+              hgap="10" vgap="5"
+              GridPane.halignment="CENTER"
+              GridPane.valignment="CENTER">
+
+        <ReagentForm fx:id="reagentForm"
+                     GridPane.columnSpan="2"
+                     GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+
+        <!--Spikes-->
+        <Label text="If conc is below?"
+               GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <TextField fx:id="belowConcentrationTextField"
+                   id="belowConcentration"
+                   GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <Label text="Spike target conc?"
+               GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+        <TextField fx:id="spikeTargetConcentrationTextField"
+                   id="spikeTargetConcentration"
+                   GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+        <!--Norms-->
+        <Label text="If conc is above?"
+               GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+        <TextField fx:id="aboveConcentrationTextField"
+                   id="aboveConcentration"
+                   GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+        <Label text="Norm target conc?"
+               GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+        <TextField fx:id="normTargetConcentrationTextField"
+                   id="normTargetConcentration"
+                   GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+
+        <Button onAction="#build" text="Transfer"
+                fx:id="transferButton"
+                GridPane.columnIndex="0" GridPane.rowIndex="7"
+                GridPane.columnSpan="2"
+                GridPane.halignment="CENTER"/>
+    </GridPane>
+
+    <RackPane rows="8" columns="12" fx:id="destinationRackPane"
+              GridPane.columnIndex="2" GridPane.rowIndex="2"
+              GridPane.halignment="CENTER"
+              id="destinationRackPane"
+              source="false"
+              rackName="Tru Seq Aliquot Rack"/>
+
+    <NormSpikeTableView fx:id="tableView"
+                       GridPane.columnIndex="0" GridPane.rowIndex="3"
+                       editable="true"
+                       GridPane.columnSpan="3" GridPane.halignment="CENTER"
+                       GridPane.hgrow="NEVER"
+                       maxWidth="848"
+                       prefHeight="225" prefWidth="400">
+    </NormSpikeTableView>
+
+    <Button onAction="#doSaveWorklist" text="Save Worklist"
+            fx:id="saveWorklistButton" disable="true"
+            GridPane.columnIndex="1" GridPane.rowIndex="4"
+            GridPane.halignment="CENTER"
+            />
+
+
+    <Button onAction="#doSendMessage" text="Send Message"
+            fx:id="sendMessageButton" disable="true"
+            GridPane.columnIndex="1" GridPane.rowIndex="5"
+            GridPane.halignment="CENTER"/>
+
+</GridPane>

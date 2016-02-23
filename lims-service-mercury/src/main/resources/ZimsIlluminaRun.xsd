@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <xsd:complexType name="zimsIlluminaRunType">
+        <xsd:sequence>
+            <xsd:element name="lanes" type="lane" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="lane">
+        <xsd:sequence>
+            <xsd:element name="libraries" type="library" maxOccurs="unbounded"/>
+        </xsd:sequence>
+    </xsd:complexType>
+    <xsd:complexType name="library">
+        <xsd:sequence>
+            <xsd:element name="regulatoryDesignation" type="xsd:string"/>
+            <xsd:element name="researchProjectId" type="xsd:string"/>
+            <xsd:element name="researchProjectName" type="xsd:string"/>
+            <xsd:element name="product" type="xsd:string"/>
+            <xsd:element name="productOrderKey" type="xsd:string"/>
+        </xsd:sequence>
+    </xsd:complexType>
+</xsd:schema>

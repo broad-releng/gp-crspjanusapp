@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import jfxtras.labs.scene.control.CalendarTextField?>
+
+<?import java.net.URL?>
+<fx:root type="javafx.scene.layout.GridPane" alignment="CENTER" hgap="10.0"
+         maxHeight="350.0" maxWidth="550.0" prefHeight="100" prefWidth="300"
+         vgap="5.0" xmlns:fx="http://javafx.com/fxml">
+    <fx:define>
+        <String fx:value="yyyy-MM-dd" fx:id="dateFormat"/>
+    </fx:define>
+    <children>
+        <Label text="Reagent Barcode?" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="0" />
+        <TextField prefWidth="200.0" fx:id="barcodeTextField"
+                   id="reagentBarcode"
+                   GridPane.columnIndex="2" GridPane.rowIndex="0" />
+        <Label text="Expiration Date?" GridPane.columnIndex="0" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+        <CalendarTextField fx:id="datePicker" dateFormat="$dateFormat"
+                           GridPane.columnIndex="2" GridPane.rowIndex="1" />
+    </children>
+    <columnConstraints>
+        <ColumnConstraints maxWidth="120.0" prefWidth="120.0" />
+        <ColumnConstraints maxWidth="32.0" prefWidth="8.0" />
+        <ColumnConstraints maxWidth="197.0" prefWidth="166.0" />
+    </columnConstraints>
+    <stylesheets>
+        <URL value="@../style.css"/>
+    </stylesheets>
+</fx:root>

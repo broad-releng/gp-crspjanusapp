@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.5+" xmlns:jfx="http://javafx.com" href="$$name" codebase="$$codebase">
+    <information>
+        <title>CRSP Janus Application</title>
+        <vendor>Broad Institute</vendor>
+        <homepage href="../index.html" />
+        <description>CRSP Janus Application</description>
+        <offline-allowed/>
+        <shortcut online="true">
+            <desktop/>
+            <menu submenu="Broad Automation Applications"/>
+        </shortcut>
+    </information>
+
+    <resources>
+        <jfx:javafx-runtime version="2.2+" href="http://javadl.sun.com/webapps/download/GetFile/javafx-latest/windows-i586/javafx2.jnlp"/>
+    </resources>
+
+    <resources>
+        <j2se version="1.7*" max-heap-size="128m" initial-heap-size="32m" />
+        <jar href="janusapp.jar" version="$BUILD_NUMBER$" main="true"/>
+        <property name="jnlp.versionEnabled" value="true"/>
+    </resources>
+
+    <security>
+        <all-permissions/>
+    </security>
+
+    <jfx:javafx-desc height="800" width="900"
+                     main-class="org.broadinstitute.gpinformatics.automation.App"
+                     name="CrspJanusApplication"/>
+    <update check="always" policy="always"/>
+</jnlp>
