@@ -1,8 +1,8 @@
 package org.broadinstitute.gpinformatics.automation.worklist;
 
-import org.broadinstitute.gpinformatics.automation.model.DilutionTransfer;
 import org.broadinstitute.gpinformatics.automation.model.Rack;
 import org.broadinstitute.gpinformatics.automation.model.Tube;
+import org.broadinstitute.gpinformatics.automation.model.VolumeTransfer;
 import org.broadinstitute.gpinformatics.automation.model.WorklistRow;
 import org.broadinstitute.techdev.lims.mercury.ConcentrationAndVolumeAndWeightType;
 import org.broadinstitute.techdev.lims.mercury.LimsService;
@@ -55,17 +55,13 @@ public class AllSampleTransferWorklistBuilder implements WorklistBuilder {
             String destinationTubeBarcode =
                     destinationRack.getTubeAt(tube.getRow(), tube.getColumn());
             double v1 = cav.getVolume();
-            double c1 = cav.getConcentration();
-            DilutionTransfer transfer = new DilutionTransfer();
+            VolumeTransfer transfer = new VolumeTransfer();
             transfer.setSourceBarcode(tube.getBarcode());
             transfer.setDna(v1);
-            transfer.setTe(0.0);
             transfer.setNewSourceVolume(0.0);
             transfer.setSourceConcentration(cav.getConcentration());
-            transfer.setTargetVolume(v1);
             transfer.setSourceWell(tube.getWell());
             transfer.setSourceVolume(v1);
-            transfer.setTargetConcentration(c1);
             transfer.setDestinationWell(tube.getWell());
             transfer.setDestinationBarcode(destinationTubeBarcode);
             transfers.add(transfer);

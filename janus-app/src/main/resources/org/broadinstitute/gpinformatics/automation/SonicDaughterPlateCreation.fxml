@@ -4,7 +4,7 @@
 <?import org.broadinstitute.gpinformatics.automation.layout.RackPane?>
 <?import javafx.scene.control.Button?>
 <?import org.broadinstitute.gpinformatics.automation.protocols.ProtocolTypes?>
-<?import org.broadinstitute.gpinformatics.automation.control.DilutionTableView?>
+<?import org.broadinstitute.gpinformatics.automation.control.VolumeTransferTableView?>
 <GridPane fx:controller="org.broadinstitute.gpinformatics.automation.controllers.SonicDaughterPlateCreationController"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10"
           styleClass="protocolView">
@@ -44,14 +44,14 @@
               source="false"
               rackName="TruSeq Aliquot Rack"/>
 
-    <DilutionTableView fx:id="tableView"
-                       GridPane.columnIndex="0" GridPane.rowIndex="2"
-                       editable="true"
-                       GridPane.columnSpan="3" GridPane.halignment="CENTER"
-                       GridPane.hgrow="NEVER"
-                       maxWidth="848"
-                       prefHeight="225" prefWidth="400">
-    </DilutionTableView>
+    <VolumeTransferTableView fx:id="tableView"
+                             GridPane.columnIndex="0" GridPane.rowIndex="2"
+                             editable="true"
+                             GridPane.columnSpan="3" GridPane.halignment="CENTER"
+                             GridPane.hgrow="NEVER"
+                             maxWidth="848"
+                             prefHeight="225" prefWidth="400">
+    </VolumeTransferTableView>
 
     <Button onAction="#doSaveWorklist" text="Save Worklist"
             fx:id="saveWorklistButton" disable="true"

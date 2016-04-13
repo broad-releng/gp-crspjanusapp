@@ -19,6 +19,10 @@ public class SonicDaughterPlateCreationController extends PlateTransferEventCont
     @Autowired
     private LimsService limsService;
 
+    public SonicDaughterPlateCreationController() {
+        super(MessageAttributeTypes.IncludeConcentration.FALSE, MessageAttributeTypes.IncludeVolume.TRUE);
+    }
+
     @Override
     public WorklistBuilder doOnInitialized() {
         assert sourceRackPane != null : "sourceRackPane was not injected by FXML";

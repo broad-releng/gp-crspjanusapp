@@ -44,7 +44,6 @@ public class SonicDaughterPlateCreationControllerTest {
 
         ConcentrationAndVolumeAndWeightType concentrationAndVolumeAndWeightType = new ConcentrationAndVolumeAndWeightType();
         concentrationAndVolumeAndWeightType.setTubeBarcode("SrcTube");
-        concentrationAndVolumeAndWeightType.setConcentration(40);
         concentrationAndVolumeAndWeightType.setVolume(150);
         Map<String, ConcentrationAndVolumeAndWeightType> map = new HashMap<>();
         map.put("SrcTube", concentrationAndVolumeAndWeightType);
@@ -113,7 +112,7 @@ public class SonicDaughterPlateCreationControllerTest {
         Assert.assertEquals("DestTube",receptacleType.getBarcode());
         Assert.assertEquals("A1",receptacleType.getPosition());
         //Target Concentration should be 2 decimal places rounded up instead of: 26.66897
-        Assert.assertEquals(BigDecimal.valueOf(4000, 2), receptacleType.getConcentration());
+        Assert.assertNull(receptacleType.getConcentration());
         Assert.assertEquals(BigDecimal.valueOf(15000, 2), receptacleType.getVolume());
     }
 }

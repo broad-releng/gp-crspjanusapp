@@ -31,6 +31,8 @@ import java.util.List;
  */
 public abstract class PlateTransferEventController extends BaseProtocolController {
     private static final Logger gLog = LoggerFactory.getLogger(PlateTransferEventController.class);
+    private final MessageAttributeTypes.IncludeConcentration includeConcentration;
+    private final MessageAttributeTypes.IncludeVolume includeVolume;
 
     @FXML
     public RackPane sourceRackPane;
@@ -47,6 +49,16 @@ public abstract class PlateTransferEventController extends BaseProtocolControlle
     private Rack sourceRack;
 
     private Rack destinationRack;
+
+    public PlateTransferEventController() {
+        this(MessageAttributeTypes.IncludeConcentration.TRUE, MessageAttributeTypes.IncludeVolume.TRUE);
+    }
+
+    public PlateTransferEventController(MessageAttributeTypes.IncludeConcentration includeConcentration,
+                                        MessageAttributeTypes.IncludeVolume includeVolume) {
+        this.includeConcentration = includeConcentration;
+        this.includeVolume = includeVolume;
+    }
 
     @Override
     public BettaLIMSMessage buildBettalimsMessage() throws DatatypeConfigurationException {
@@ -82,10 +94,12 @@ public abstract class PlateTransferEventController extends BaseProtocolControlle
         }
 
         PositionMapType sourcePositionMap = BettalimsMessageFactory.buildPositionMap(
-                sourceRack.getBarcode(), sourceTubeBarcodes, sourceWells, sourceVolumes);
+                sourceRack.getBarcode(), sourceTubeBarcodes, sourceWells, sourceVolumes, null,
+                includeConcentration, includeVolume);
 
         PositionMapType positionMap = BettalimsMessageFactory.buildPositionMap(
-                destinationRack.getBarcode(), destTubeBarcodes, destWells, destVolumes, destConcentrations);
+                destinationRack.getBarcode(), destTubeBarcodes, destWells, destVolumes, destConcentrations,
+                includeConcentration, includeVolume);
 
         PlateTransferEventType plateTransferEventType = new PlateTransferEventType();
         plateTransferEventType.setSourcePositionMap(sourcePositionMap);
