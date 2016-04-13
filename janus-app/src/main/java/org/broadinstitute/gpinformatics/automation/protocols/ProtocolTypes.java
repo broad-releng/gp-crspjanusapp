@@ -8,7 +8,8 @@ public enum ProtocolTypes {
     TruSeqAliquot("TruSeq Aliquot", "PolyATSAliquot"),
     TruSeqSpike("TruSeq Norm/Spike", "PolyATSAliquotSpike"),
     RNACaliperQC("RNA Caliper QC", "RNACaliperSetup"),
-    VolumeTransfer("Volume Transfer", "EmergeVolumeTransfer");
+    VolumeTransfer("Volume Transfer", "EmergeVolumeTransfer"),
+    SonicDaughterPlateCreation("Sonic Daughter Plate Creation", "SonicDaughterPlateCreation");
 
     private String value;
     private String eventType;

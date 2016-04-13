@@ -112,8 +112,10 @@ public abstract class BaseProtocolController implements Initializable {
      * classes to do the same
      */
     private void reset() {
-        tableView.getItems().removeAll(tableView.getItems());
-        reagentForm.reset();
+        if (tableView != null)
+            tableView.getItems().removeAll(tableView.getItems());
+        if (reagentForm != null)
+            reagentForm.reset();
         handleReset();
     }
 

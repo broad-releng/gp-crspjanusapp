@@ -12,6 +12,7 @@ import org.broadinstitute.gpinformatics.automation.controllers.RNACaliperQCContr
 import org.broadinstitute.gpinformatics.automation.controllers.RaiseVolumeController;
 import org.broadinstitute.gpinformatics.automation.control.ReagentForm;
 import org.broadinstitute.gpinformatics.automation.controllers.ShearingNormalizationController;
+import org.broadinstitute.gpinformatics.automation.controllers.SonicDaughterPlateCreationController;
 import org.broadinstitute.gpinformatics.automation.controllers.TruSeqAliquotController;
 import org.broadinstitute.gpinformatics.automation.controllers.TruSeqSpikeController;
 import org.broadinstitute.gpinformatics.automation.controllers.VolumeTransferController;
@@ -47,6 +48,11 @@ public class JanusAppConfig {
     @Bean
     public ProtocolsController janusAppController(){
         return new ProtocolsController();
+    }
+
+    @Bean
+    public SonicDaughterPlateCreationController sonicDaughterPlateCreationController() {
+        return new SonicDaughterPlateCreationController();
     }
 
     @Bean
