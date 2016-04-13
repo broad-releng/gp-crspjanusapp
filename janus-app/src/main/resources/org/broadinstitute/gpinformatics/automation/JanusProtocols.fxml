@@ -59,6 +59,11 @@
                                             <ProtocolTypes fx:value="VolumeTransfer"/>
                                         </value>
                                     </TreeItem>
+                                    <TreeItem>
+                                        <value>
+                                            <ProtocolTypes fx:value="SonicDaughterPlateCreation"/>
+                                        </value>
+                                    </TreeItem>
                                 </children>
                             </TreeItem>
                         </root>
@@ -77,6 +82,7 @@
                     <fx:include fx:id="truSeqSpikePane" source="TruSeqSpike.fxml" />
                     <fx:include fx:id="rnaCaliperQCPane" source="RNACaliperQC.fxml" />
                     <fx:include fx:id="volumeTransferPane" source="VolumeTransfer.fxml" />
+                    <fx:include fx:id="sonicDaughterPlateCreationPane" source="SonicDaughterPlateCreation.fxml" />
                 </StackPane>
             </GridPane>
         </items>

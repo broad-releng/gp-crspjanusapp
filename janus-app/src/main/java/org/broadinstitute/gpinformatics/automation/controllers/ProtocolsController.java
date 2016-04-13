@@ -48,6 +48,9 @@ public class ProtocolsController extends StackPaneController implements Initiali
     @FXML
     private Pane volumeTransferPane;
 
+    @FXML
+    private Pane sonicDaughterPlateCreationPane;
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         super.initialize(url, rb);
@@ -59,6 +62,7 @@ public class ProtocolsController extends StackPaneController implements Initiali
         assert truSeqSpikePane != null : "truSeqSpikePane was not injected";
         assert rnaCaliperQCPane != null : "rnaCaliperQCPane was not injected";
         assert volumeTransferPane != null : "volumeTransferPane was not injected";
+        assert sonicDaughterPlateCreationPane != null : "sonicDaughterPlateCreationPane was not injected";
 
         initializeTreeView();
 
@@ -95,6 +99,10 @@ public class ProtocolsController extends StackPaneController implements Initiali
                     break;
                 case VolumeTransfer:
                     replaceContent(volumeTransferPane);
+                    break;
+                case SonicDaughterPlateCreation:
+                    replaceContent(sonicDaughterPlateCreationPane);
+                    break;
                 }
             }
         });
