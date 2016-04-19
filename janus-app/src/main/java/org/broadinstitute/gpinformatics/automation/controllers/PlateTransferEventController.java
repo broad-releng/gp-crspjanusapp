@@ -95,7 +95,7 @@ public abstract class PlateTransferEventController extends BaseProtocolControlle
 
         PositionMapType sourcePositionMap = BettalimsMessageFactory.buildPositionMap(
                 sourceRack.getBarcode(), sourceTubeBarcodes, sourceWells, sourceVolumes, null,
-                includeConcentration, includeVolume);
+                MessageAttributeTypes.IncludeConcentration.FALSE, includeVolume);
 
         PositionMapType positionMap = BettalimsMessageFactory.buildPositionMap(
                 destinationRack.getBarcode(), destTubeBarcodes, destWells, destVolumes, destConcentrations,
