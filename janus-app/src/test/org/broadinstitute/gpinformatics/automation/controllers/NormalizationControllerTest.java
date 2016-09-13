@@ -48,9 +48,10 @@ public class NormalizationControllerTest {
         Normalization transfer2 = new Normalization(true, false);
         transfer2.setWell("A2");
         transfer2.setBarcode("srctube02");
-        transfer2.setV1(100);
-        transfer2.setC1(50);
+        transfer2.setV1(50);
+        transfer2.setC1(200);
         transfer2.setTarget(25);
+        transfers.add(transfer2);
 
         NormalizationController controller = new NormalizationController() {
             @Override
@@ -95,11 +96,15 @@ public class NormalizationControllerTest {
         PositionMapType positionMap = plateEventType.getPositionMap();
         Assert.assertEquals("srcrackbarcode", positionMap.getBarcode());
         List<ReceptacleType> sourcePositionMapReceptacles = positionMap.getReceptacle();
-        Assert.assertTrue(sourcePositionMapReceptacles.size() == 1);
+        Assert.assertTrue(sourcePositionMapReceptacles.size() == 2);
         ReceptacleType sourceReceptacleType = sourcePositionMapReceptacles.get(0);
         Assert.assertEquals("srctube01",sourceReceptacleType.getBarcode());
         Assert.assertEquals("A1", sourceReceptacleType.getPosition());
         Assert.assertEquals(BigDecimal.valueOf(2500, 2), sourceReceptacleType.getConcentration());
         Assert.assertEquals(BigDecimal.valueOf(8000, 2), sourceReceptacleType.getVolume());
+
+        // Should split overflow of tips 200 into two rows
+        List<WorklistRow> splitTransfers = controller.splitTransfers(transfers);
+        Assert.assertEquals(3, splitTransfers.size());
     }
 }

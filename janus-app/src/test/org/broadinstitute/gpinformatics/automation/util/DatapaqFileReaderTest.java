@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.List;
 
 public class DatapaqFileReaderTest {
-    File dir = new File("janus-app/src/test/Ziath");
+    File dir = new File("src/test/Ziath");
     File file = new File(dir, "ExampleScan.txt");
     File decodeFail = new File(dir, "DecodeFailure.txt");
 

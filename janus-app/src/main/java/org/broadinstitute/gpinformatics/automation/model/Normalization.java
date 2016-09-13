@@ -8,7 +8,7 @@ import javafx.beans.property.StringProperty;
 /**
  * Defines a Normalization row in a CSV or tableView
  */
-public class Normalization implements WorklistRow {
+public class Normalization implements WorklistRow, BufferAdditionRow {
     private final StringProperty well = new SimpleStringProperty("");
     private final StringProperty barcode = new SimpleStringProperty("");
     private final DoubleProperty target = new SimpleDoubleProperty();

@@ -17,7 +17,7 @@ public class ZiathRackScannerTest {
 
     @Test
     public void testFire() throws Exception {
-        File outputDir = new File("janus-app/src/test/Ziath");
+        File outputDir = new File("src/test/Ziath");
         RuntimeExecutor executor = mock(RuntimeExecutor.class);
         when(executor.execute("fakecmd")).thenReturn("");
 

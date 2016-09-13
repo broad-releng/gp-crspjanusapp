@@ -12,7 +12,6 @@ import org.broadinstitute.gpinformatics.automation.controllers.RNACaliperQCContr
 import org.broadinstitute.gpinformatics.automation.controllers.RaiseVolumeController;
 import org.broadinstitute.gpinformatics.automation.control.ReagentForm;
 import org.broadinstitute.gpinformatics.automation.controllers.ShearingNormalizationController;
-import org.broadinstitute.gpinformatics.automation.controllers.SonicDaughterPlateCreationController;
 import org.broadinstitute.gpinformatics.automation.controllers.TruSeqAliquotController;
 import org.broadinstitute.gpinformatics.automation.controllers.TruSeqSpikeController;
 import org.broadinstitute.gpinformatics.automation.controllers.VolumeTransferController;
@@ -22,7 +21,6 @@ import org.broadinstitute.gpinformatics.automation.messaging.JmsMessageTransport
 import org.broadinstitute.gpinformatics.automation.model.User;
 import org.broadinstitute.gpinformatics.automation.util.BadgeScanner;
 import org.broadinstitute.gpinformatics.automation.util.MachineNameLookup;
-import org.broadinstitute.gpinformatics.automation.util.RackScanner;
 import org.broadinstitute.gpinformatics.automation.util.RootConfig;
 import org.broadinstitute.gpinformatics.automation.util.RuntimeExecutor;
 import org.broadinstitute.techdev.lims.mercury.LimsService;
@@ -48,11 +46,6 @@ public class JanusAppConfig {
     @Bean
     public ProtocolsController janusAppController(){
         return new ProtocolsController();
-    }
-
-    @Bean
-    public SonicDaughterPlateCreationController sonicDaughterPlateCreationController() {
-        return new SonicDaughterPlateCreationController();
     }
 
     @Bean
