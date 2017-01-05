@@ -21,7 +21,10 @@ public class WorklistWriterTest {
 
     @Before
     public void setUp() throws Exception {
-        file = new File("janus-app/src/test/MESSAGING/ROBO/test.csv");
+        ClassLoader classLoader = getClass().getClassLoader();
+        File messagingDir = new File(classLoader.getResource("MESSAGING").getFile());
+        File roboDir = new File(messagingDir, "ROBO");
+        file = new File(roboDir, "test.csv");
         if(file.exists())
             file.delete();
     }

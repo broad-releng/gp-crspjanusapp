@@ -9,7 +9,7 @@ public enum ProtocolTypes {
     TruSeqSpike("TruSeq Norm/Spike", "PolyATSAliquotSpike"),
     RNACaliperQC("RNA Caliper QC", "RNACaliperSetup"),
     VolumeTransfer("Volume Transfer", "EmergeVolumeTransfer"),
-    SonicDaughterPlateCreation("Sonic Daughter Plate Creation", "SonicDaughterPlateCreation");
+    CrspSpike("Crsp Norms and Spikes", "SpikeIn");
 
     private String value;
     private String eventType;

@@ -8,7 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import java.io.File;
 import java.io.IOException;
+
+import static org.mockito.Mockito.mock;
+import static org.mockito.Mockito.when;
 
 /**
  * Test machine name lookup
@@ -21,6 +25,11 @@ public class MachineNameLookupTest {
 
     @Test
     public void testGetMachineName() throws Exception {
+        ClassLoader classLoader = getClass().getClassLoader();
+        File messagingDir = new File(classLoader.getResource("MESSAGING").getFile());
+        RootConfig rootConfig = mock(RootConfig.class);
+        when(rootConfig.getRootDirectory()).thenReturn(messagingDir);
+        machineNameLookup.setRootConfig(rootConfig);
         String machineName = machineNameLookup.getMachineName();
         Assert.assertEquals("BATMAN", machineName);
     }
