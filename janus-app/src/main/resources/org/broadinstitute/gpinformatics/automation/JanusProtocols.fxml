@@ -36,6 +36,11 @@
                                     </TreeItem>
                                     <TreeItem>
                                         <value>
+                                            <ProtocolTypes fx:value="CrspSpike"/>
+                                        </value>
+                                    </TreeItem>
+                                    <TreeItem>
+                                        <value>
                                             <ProtocolTypes fx:value="RaiseVolume"/>
                                         </value>
                                     </TreeItem>
@@ -59,11 +64,6 @@
                                             <ProtocolTypes fx:value="VolumeTransfer"/>
                                         </value>
                                     </TreeItem>
-                                    <TreeItem>
-                                        <value>
-                                            <ProtocolTypes fx:value="SonicDaughterPlateCreation"/>
-                                        </value>
-                                    </TreeItem>
                                 </children>
                             </TreeItem>
                         </root>
@@ -82,7 +82,7 @@
                     <fx:include fx:id="truSeqSpikePane" source="TruSeqSpike.fxml" />
                     <fx:include fx:id="rnaCaliperQCPane" source="RNACaliperQC.fxml" />
                     <fx:include fx:id="volumeTransferPane" source="VolumeTransfer.fxml" />
-                    <fx:include fx:id="sonicDaughterPlateCreationPane" source="SonicDaughterPlateCreation.fxml" />
+                    <fx:include fx:id="crspSpikePane" source="CrspSpikes.fxml" />
                 </StackPane>
             </GridPane>
         </items>

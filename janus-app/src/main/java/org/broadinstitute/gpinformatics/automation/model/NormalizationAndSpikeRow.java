@@ -254,6 +254,20 @@ public class NormalizationAndSpikeRow implements WorklistRow {
         return null;
     }
 
+    public String[] toDilutionWorklistRow() {
+        if(getTransferType() == TransferType.SPIKE) {
+            return new String[]{
+                    "P1", getParentWell(), "D1", getDaughterWell(), String.valueOf(getDna()), "0.0"
+            };
+        } else if(getTransferType() == TransferType.NORMALIZATION) {
+            return new String[]{
+                    "D1", getDaughterWell(), "D1", getDaughterWell(), "0.0", String.valueOf(getTe())
+            };
+        }
+
+        return null;
+    }
+
     @Override
     public String sortWell() {
         return getDaughterWell();

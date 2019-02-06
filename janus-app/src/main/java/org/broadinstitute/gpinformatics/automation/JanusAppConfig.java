@@ -3,6 +3,7 @@ package org.broadinstitute.gpinformatics.automation;
 import com.google.common.io.Files;
 import org.apache.activemq.ActiveMQConnectionFactory;
 import org.apache.activemq.command.ActiveMQQueue;
+import org.broadinstitute.gpinformatics.automation.controllers.CrspSpikeController;
 import org.broadinstitute.gpinformatics.automation.controllers.FingerprintNormalizationController;
 import org.broadinstitute.gpinformatics.automation.controllers.JanusApplicationController;
 import org.broadinstitute.gpinformatics.automation.controllers.ProtocolsController;
@@ -73,6 +74,11 @@ public class JanusAppConfig {
     @Bean
     public NormalizationController normalizationController(){
         return new NormalizationController();
+    }
+
+    @Bean
+    public CrspSpikeController crspSpikeController(){
+        return new CrspSpikeController();
     }
 
     @Bean

@@ -9,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TreeItem;
 import javafx.scene.control.TreeView;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import org.broadinstitute.gpinformatics.automation.protocols.ProtocolTypes;
 import org.slf4j.Logger;
@@ -49,7 +50,7 @@ public class ProtocolsController extends StackPaneController implements Initiali
     private Pane volumeTransferPane;
 
     @FXML
-    private Pane sonicDaughterPlateCreationPane;
+    public Pane crspSpikePane;
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -62,7 +63,7 @@ public class ProtocolsController extends StackPaneController implements Initiali
         assert truSeqSpikePane != null : "truSeqSpikePane was not injected";
         assert rnaCaliperQCPane != null : "rnaCaliperQCPane was not injected";
         assert volumeTransferPane != null : "volumeTransferPane was not injected";
-        assert sonicDaughterPlateCreationPane != null : "sonicDaughterPlateCreationPane was not injected";
+        assert crspSpikePane != null : "crspSpikePane was not injected";
 
         initializeTreeView();
 
@@ -100,8 +101,8 @@ public class ProtocolsController extends StackPaneController implements Initiali
                 case VolumeTransfer:
                     replaceContent(volumeTransferPane);
                     break;
-                case SonicDaughterPlateCreation:
-                    replaceContent(sonicDaughterPlateCreationPane);
+                case CrspSpike:
+                    replaceContent(crspSpikePane);
                     break;
                 }
             }
